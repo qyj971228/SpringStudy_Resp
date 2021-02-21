@@ -1,8 +1,12 @@
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.qyj.service.UserService;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -82,5 +86,37 @@ public class DataSourceTest {
         Connection conn = dataSource.getConnection();
         System.out.println(conn);
         conn.close();
+    }
+
+    /**
+     * 测试spring容器产生数据源对象 -> C3P0
+     */
+    @Test
+    public void test5() throws SQLException {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        DataSource dataSource = (DataSource) app.getBean("dataSource_C3P0");
+        Connection conn = dataSource.getConnection();
+        System.out.println(conn);
+    }
+    /**
+     * 测试spring容器产生数据源对象 -> Druid
+     */
+    @Test
+    public void test6() throws SQLException {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        DataSource dataSource = (DataSource) app.getBean("dataSource_Druid");
+        Connection conn = dataSource.getConnection();
+        System.out.println(conn);
+    }
+
+    /**
+     *
+     */
+    @Test
+    public void test7(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService userService = (UserService) app.getBean("serviceDao");
+        userService.save();
+        ((ClassPathXmlApplicationContext)app).close();
     }
 }

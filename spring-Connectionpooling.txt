@@ -1,0 +1,46 @@
+Spring Connection pooling:
+    1.常见数据源(数据库连接池)
+        DBCP,C3P0,BoneCPU,Druid
+    2.手动创建连接 test/java/test1()-test4()
+    3.spring容器产生数据源对象 test/java/test5()-test6()
+        bean配置
+            <bean id="dataSource_C3P0" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+                <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC"></property>
+                <property name="user" value="root"></property>
+                <property name="password" value="DBJdedi2gehao"></property>
+            </bean>
+            <bean id="dataSource_Druid" class="com.alibaba.druid.pool.DruidDataSource">
+                <property name="DriverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/world?serverTimezone=UTC"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="DBJdedi2gehao"></property>
+            </bean>
+    *4.抽取jdbc配置文件 -> 加载properties配置文件
+        命名空间
+            xmlns:context="http://www.springframework.org/schema/context"
+        约束路径
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        bean配置
+            <!--加载外部的properties文件-->
+            <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+            <bean id="dataSource_C3P0" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <property name="driverClass" value="${jdbc.driver}"></property>
+                <property name="jdbcUrl" value="${jdbc.url}"></property>
+                <property name="user" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </bean>
+            <bean id="dataSource_Druid" class="com.alibaba.druid.pool.DruidDataSource">
+                <property name="DriverClassName" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </bean>
+
+
+
+
+
+
+

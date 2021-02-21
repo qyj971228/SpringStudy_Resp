@@ -2,11 +2,9 @@ package com.qyj.test;
 
 import com.qyj.dao.UserDao;
 import com.qyj.service.UserService;
-import com.qyj.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class SpringTest {
     /**

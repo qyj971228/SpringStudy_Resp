@@ -13,7 +13,7 @@ Spring-API
         *1.getBean(String s)
             通过Bean的id获取Bean -> 同一类有多个对象时使用 -> 推荐使用
         2.getBean(Class<T> requiredType)
-            通过.class获取Bean -> 只建议单例类使用
+            通过.class获取Bean -> 只建议一个类只有一个对象时使用
 
 
 
