@@ -6,6 +6,7 @@ import com.qyj.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class SpringTest {
     /**
@@ -69,6 +70,30 @@ public class SpringTest {
         UserService userService = (UserService) app.getBean("UserService");
         userService.save();
 
+    }
+    /**
+     * set注入 -> 普通数据类型注入&引用数据类型注入&集合数据类型注入
+     * 构造注入
+     */
+    @Test
+    public void test7(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) app.getBean("UserDao");
+        userDao.save();
+    }
+    /**
+     * Spring-API
+     * ApplicationContext实现类
+     * 两个getBean()
+     */
+    @Test
+    public void test8(){
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        ApplicationContext app = new FileSystemXmlApplicationContext(
+//                "D:\\Study\\framework\\spring\\spring_ioc\\src\\main\\resources\\applicationContext.xml");
+        UserDao userDao = (UserDao) app.getBean("UserDao");
+//        UserDao userDao = app.getBean(UserDao.class);
+        userDao.save();
     }
 }
 

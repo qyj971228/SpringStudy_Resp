@@ -1,0 +1,5 @@
+Spring Connection pooling:
+    1.常见数据源(数据库连接池)
+        DBCP,C3P0,BoneCPU,Druid
+    2.手动创建连接 test/java/test1()-4
+    3.

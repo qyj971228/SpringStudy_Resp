@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--构造注入-->
+    <bean id="User1" class="com.qyj.domain.User">
+        <property name="name" value="lisi"></property>
+        <property name="address" value="beijing"></property>
+    </bean>
+    <bean id="User2" class="com.qyj.domain.User">
+        <property name="name" value="wangwu"></property>
+        <property name="address" value="shanghai"></property>
+    </bean>
+    <bean id="UserDao" class="com.qyj.dao.impl.UserDaoImpl">
+        <constructor-arg name="username" value="zhaoliu"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+        <constructor-arg name="stringList">
+            <list>
+                <value>aa</value>
+                <value>bb</value>
+                <value>cc</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="userMap">
+            <map>
+                <entry key="m_key1" value-ref="User1"></entry>
+                <entry key="m_key2" value-ref="User2"></entry>
+            </map>
+        </constructor-arg>
+        <constructor-arg name="properties">
+            <props>
+                <prop key="p_key1">p_value1</prop>
+                <prop key="p_key2">p_value2</prop>
+                <prop key="p_key3">p_value3</prop>
+            </props>
+        </constructor-arg>
+    </bean>
+</beans>

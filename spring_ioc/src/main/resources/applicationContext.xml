@@ -26,7 +26,46 @@
 <!--    </bean>-->
 
     <!--set注入 p命名空间形式-->
-    <bean id="UserDao" class="com.qyj.dao.impl.UserDaoImpl"></bean>
-    <bean id="UserService" class="com.qyj.service.impl.UserServiceImpl" p:userDao-ref="UserDao"></bean>
+<!--    <bean id="UserDao" class="com.qyj.dao.impl.UserDaoImpl"></bean>-->
+<!--    <bean id="UserService" class="com.qyj.service.impl.UserServiceImpl" p:userDao-ref="UserDao"></bean>-->
 
+    <!--set注入 普通数据类型注入-->
+<!--    <bean id="UserDao" class="com.qyj.dao.impl.UserDaoImpl">-->
+<!--        <property name="username" value="zhangsan"></property>-->
+<!--        <property name="age" value="20"></property>-->
+<!--    </bean>-->
+    <!--set注入 集合类型注入-->
+<!--    <bean id="User1" class="com.qyj.domain.User">-->
+<!--        <property name="name" value="lisi"></property>-->
+<!--        <property name="address" value="beijing"></property>-->
+<!--    </bean>-->
+<!--    <bean id="User2" class="com.qyj.domain.User">-->
+<!--        <property name="name" value="wangwu"></property>-->
+<!--        <property name="address" value="shanghai"></property>-->
+<!--    </bean>-->
+<!--    <bean id="UserDao" class="com.qyj.dao.impl.UserDaoImpl">-->
+<!--        <property name="stringList">-->
+<!--            <list>-->
+<!--                <value>a</value>-->
+<!--                <value>b</value>-->
+<!--                <value>c</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="userMap">-->
+<!--            <map>-->
+<!--                <entry key="1" value-ref="User1"></entry>-->
+<!--                <entry key="2" value-ref="User2"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="key1">value1</prop>-->
+<!--                <prop key="key2">value2</prop>-->
+<!--                <prop key="key3">value3</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <!--外部配置文件引入-->
+    <import resource="applicationContext-constructor-arg.xml"></import>
 </beans>

@@ -1,0 +1,31 @@
+Spring-API
+    1.ApplicationContext接口
+        1.概念:
+            代表应用上下文,可以通过其实例获得Spring容器中的Bean对象
+        2.ApplicationContext实现类
+            *1.ClassPathXmlApplicationContext
+                从类的根路径下加载配置文件 -> 配置文件置于resources之下 -> 推荐使用
+            2.FileSystemXmlApplicationContext
+                从磁盘路径上加载配置文件 ->配置文件可以在磁盘任意位置
+            3.AnnotationConfigApplicationContext
+                当使用注解配置容器对象时,需要使用此类来创建spring容器 -> 读取注解而非配置文件
+    2.getBean()
+        *1.getBean(String s)
+            通过Bean的id获取Bean -> 同一类有多个对象时使用 -> 推荐使用
+        2.getBean(Class<T> requiredType)
+            通过.class获取Bean -> 只建议单例类使用
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
