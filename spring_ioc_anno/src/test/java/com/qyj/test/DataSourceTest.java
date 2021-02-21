@@ -1,9 +1,13 @@
+package com.qyj.test;
+
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidPooledConnection;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.qyj.config.SpringConfiguration;
 import com.qyj.service.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.sql.DataSource;
@@ -115,8 +119,17 @@ public class DataSourceTest {
     @Test
     public void test7(){
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserService userService = (UserService) app.getBean("serviceDao");
+        UserService userService = (UserService) app.getBean("userService");
         userService.save();
         ((ClassPathXmlApplicationContext)app).close();
+    }
+    /**
+     * Spring注解充当配置文件
+     */
+    @Test
+    public void test8() throws SQLException {
+        ApplicationContext app = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+        UserService userService = (UserService) app.getBean("userService");
+        userService.save();
     }
 }

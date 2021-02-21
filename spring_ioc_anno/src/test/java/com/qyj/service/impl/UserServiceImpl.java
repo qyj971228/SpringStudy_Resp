@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 //<bean id="serviceDao" class="com.qyj.service.impl.UserServiceImpl"></bean>
 //@Component("serviceDao")
 //@Scope("prototype")
-@Service("serviceDao")
+@Service("userService")
 @Scope("singleton")
 
 public class UserServiceImpl implements UserService {

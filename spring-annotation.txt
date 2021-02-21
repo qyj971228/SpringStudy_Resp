@@ -37,6 +37,17 @@ Spring-annotation:
             <!--配置组件扫描-->
                 <context:component-scan base-package="com.qyj"></context:component-scan>
                     *"com.qyj" -> 该包下的所有包都进行扫描
+    2.Spring新注解 详见com.qyj.config包下具体注解
+        1.注解类型
+            @Configuration      用于指定当前类是一个Spring配置类,当创建容器时会从该类上加载注解
+            @Bean               使用在方法上,标注将该方法的返回值存储到Spring容器中
+            ------------------------------------------------------------------------------------------------------------
+            @ComponentScan      用于指定Spring在初始化容器时需要扫描的包
+                *作用同xml中的 <context:component-scan base-package="com.qyj"></context:component-scan>
+            @PropertySource     用于加载.properties文件中的配置
+                *作用同xml中的 <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+            @Import             用于导入其他.xml类型的配置类
+                *作用同xml中的 <import resource="applicationContext-constructor-arg.xml"></import>
 
 
 
