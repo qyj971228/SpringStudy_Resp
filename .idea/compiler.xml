@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring_ioc" />
         <module name="spring_aop_anno" />
+        <module name="spring_aop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
