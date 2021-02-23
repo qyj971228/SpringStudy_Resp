@@ -43,7 +43,7 @@ Spring-annotation:
             @Bean               使用在方法上,标注将该方法的返回值存储到Spring容器中
             ------------------------------------------------------------------------------------------------------------
             @ComponentScan      用于指定Spring在初始化容器时需要扫描的包
-                *作用同xml中的 <context:component-scan base-package="com.com.qyj"></context:component-scan>
+                *作用同xml中的 <context:component-scan base-package="com.qyj"></context:component-scan>
             @PropertySource     用于加载.properties文件中的配置
                 *作用同xml中的 <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
             @Import             用于导入其他.xml类型的配置类

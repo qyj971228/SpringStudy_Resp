@@ -21,22 +21,32 @@ JDBCTemplate *详见test/com/qyj/test/JdbcTemplateTest
         4.执行数据库操作
             int row = jdbcTemplate.update("insert into users values(?,?,?)",3,"zhaoliu","456789");
             System.out.println(row);
-xml的开发步骤
-    1.注入依赖
-        *详见 spring-jdbc/src/test/resources/applicationContext.xml & jdbc.properties
-    2.获取JdbcTemplate对象
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        JdbcTemplate jdbcTemplate = (JdbcTemplate) app.getBean("jdbcTemplate_Druid");
-    3.进行数据库操作
-        例:
-            String sql = "insert into users values(?,?,?)";
-            int row = jdbcTemplate.update(sql,5,"zhaoliu","456789");
+
+JDBCTemplate xml的配置步骤
+    1.配置文件详见 spring-jdbc/src/test/resources/.
+    2.在执行文件中配置路径
+        @ContextConfiguration("classpath:applicationContext.xml")
 
 
+JDBCTemplate ann的配置步骤
+    *好像只要把配置文件改成class配置就好了
+    1.配置文件详见 spring-jdbc/src/test/java/com/qyj/config/JdbcTemplateConfig.java
+    2.在执行文件中配置路径
+        @ContextConfiguration(classes = JdbcTemplateConfig.class)
 
-
-
-
+    数据库操作
+        *详见com.qyj.test.JdbcTemplateCRUDTest
+        更新:
+            jdbcTemplate.update(sql,params)
+        查询操作:
+            jdbcTemplate.query(sql,Mapper,params)
+                *封装成指定javaBean
+            jdbcTemplate.queryForList(sql,params)
+                *封装成list
+            jdbcTemplate.queryForMap(sql,params)
+                *封装成map
+            jdbcTemplate.queryForObject(sql,Mapper,params)
+                *封装成指定对象,但是只能封装一个
 
 
 

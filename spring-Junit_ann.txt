@@ -14,9 +14,8 @@ Spring集成Junit步骤
         @ContextConfiguration(classes = com.com.qyj.config.SpringConfiguration.class)
     4.使用@Autowired注入需要测试的对象
         @Autowired
-        private UserService userService;
-        @Autowired
-        private DataSource dataSource;
+        @Qualifier("jdbcTemplate_Druid")
+        private JdbcTemplate jdbcTemplate_Druid;
     5.使用@Test创建测试方法进行测试
         @Test
         public void test1(){
