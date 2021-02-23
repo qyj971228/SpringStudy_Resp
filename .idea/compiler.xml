@@ -6,16 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring_ioc" />
-        <module name="spring_aop_anno" />
-        <module name="spring_aop" />
+        <module name="spring_aop_xml" />
+        <module name="spring_ioc_ann" />
+        <module name="spring-aop_ann" />
+        <module name="spring_ioc_xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="spring_aop" target="1.7" />
-      <module name="spring_aop_anno" target="1.7" />
-      <module name="spring_ioc" target="1.7" />
+      <module name="spring-aop_ann" target="1.7" />
+      <module name="spring_aop_xml" target="1.7" />
+      <module name="spring_ioc_ann" target="1.7" />
       <module name="spring_ioc_anno" target="1.7" />
+      <module name="spring_ioc_xml" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

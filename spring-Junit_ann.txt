@@ -1,0 +1,28 @@
+Spring集成Junit步骤
+    *详见com/com.qyj/test/SpringJunitTest.java
+    *相关的Junit包版本必须在4.12或以上
+    1.导入spring集成junit的坐标
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>5.2.12.RELEASE</version>
+        </dependency>
+    2.在类上使用@Runwith注解替换原来的运行期
+        @RunWith(SpringJUnit4ClassRunner.class)
+    3.在类上使用@ContextConfiguration指定配置文件或配置类
+        @ContextConfiguration("classpath:applicationContext.xml")
+        @ContextConfiguration(classes = com.com.qyj.config.SpringConfiguration.class)
+    4.使用@Autowired注入需要测试的对象
+        @Autowired
+        private UserService userService;
+        @Autowired
+        private DataSource dataSource;
+    5.使用@Test创建测试方法进行测试
+        @Test
+        public void test1(){
+            userService.save();
+        }
+        @Test
+        public void test2() throws SQLException {
+            System.out.println(dataSource.getConnection());
+        }

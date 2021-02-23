@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring_aop:war exploded">
-    <output-path>$PROJECT_DIR$/spring_aop/target/spring_aop</output-path>
+  <artifact type="exploded-war" name="spring-aop_ann:war exploded">
+    <output-path>$PROJECT_DIR$/spring-aop_ann/target/spring-aop_ann</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>spring_aop</module>
+        <module>spring-aop_ann</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring_aop_xml" />
+          <element id="module-output" name="spring-aop_ann" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-test:5.2.12.RELEASE" />
@@ -25,9 +25,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring_aop_xml/target/spring_aop/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/spring-aop_ann/target/spring-aop_ann/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring_aop_xml/web/Web" />
+      <element id="javaee-facet-resources" facet="spring-aop_ann/web/Web" />
     </root>
   </artifact>
 </component>

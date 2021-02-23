@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring_aop:war exploded">
-    <output-path>$PROJECT_DIR$/spring_aop/target/spring_aop</output-path>
+  <artifact type="exploded-war" name="spring_aop_xml:war exploded">
+    <output-path>$PROJECT_DIR$/spring_aop_xml/target/spring_aop</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>spring_aop</module>
+        <module>spring_aop_xml</module>
         <packaging>war</packaging>
       </options>
     </properties>

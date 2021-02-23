@@ -1,0 +1,42 @@
+spring-aop_ann
+    基于注解的aop开发
+    1.快速入门
+        1.创建目标接口和目标类
+        2.创建切面类
+        3.将目标类和切面类的对象创建全交给spring
+            提交切面
+                @Component("myAspect")
+                @Aspect
+            提交目标
+                @Component("target")
+        4.通过注解设置对应通知类型
+            @Before("execution(public void com.qyj.aop.Target.save())")
+            @AfterReturning
+            @Around
+            @AfterThrowing
+            @After
+                *切点表达式抽取 详见com.qyj.aop.MyAspect
+                    1.定义切点表达式
+                        @Pointcut("execution(public void com.qyj.aop.Target.save())")
+                        public void pointcut(){}
+                    2.使用定义
+                        1.方法1
+                            @Before("MyAspect.pointcut()")
+                        2.方法2
+                            @Before("pointcut()")
+        5.在配置文件中开启组件扫描和aop的自动代理
+            xmlns:aop="http://www.springframework.org/schema/aop"
+            xmlns:context="http://www.springframework.org/schema/context"
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-context.xsd
+            <!--组件扫描-->
+            <context:component-scan base-package="com.qyj.aop"></context:component-scan>
+            <!--自动代理-->
+            <aop:aspectj-autoproxy/>
+        6.测试
+
+
+
+
+
+

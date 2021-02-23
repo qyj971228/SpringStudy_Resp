@@ -1,0 +1,53 @@
+Spring-annotation:
+    1.Spring原始注解
+        1.作用
+            主要是替代Bean的配置
+        2.注解类型
+            @Component      使用在类上                       实例化Bean
+            @Controller     使用在web层类上                   实例化Bean
+            @Service        使用service层类上                实例化Bean
+            @Repository     使用dao层类上                    实例化Bean
+            ------------------------------------------------------------------------------------------------------------
+            @Autowired      使用在字段(成员变量)上             按照数据类型从Spring容器中进行匹配和注入
+                *使用此方法进行依赖注入时可以省去依赖的set方法
+                *那么使用@Autowired的原理是什么？
+                    其实在启动spring IoC时，容器自动装载了一个AutowiredAnnotationBeanPostProcessor后置处理器
+                    当容器扫描到@Autowied、@Resource或@Inject时，就会在IoC容器自动查找需要的bean，并装配给该对象的属性
+                *注意事项：
+                    在使用@Autowired时，首先在容器中查询对应类型的bean
+                        如果查询结果刚好为一个，就将该bean装配给@Autowired指定的数据
+                        如果查询的结果不止一个，那么@Autowired会根据名称来查找 -> 按照bean的名称,优先找相同名称的bean注入
+                        如果查询的结果为空，那么会抛出异常。解决方法时，使用required=false
+            @Qualifier      结合@Autowired一起使用            按照id从容器中进行匹配和注入
+                *结合使用时可以直接通过id查找目标Bean并注入
+            @Resource       相当于@Autowired+@Qualifier      按照名称进行注入
+            ------------------------------------------------------------------------------------------------------------
+            @Value          使用在字段(成员变量)上              注入普通属性(赋值)
+                *Value("") -> 直接注入value
+                *Value("${}") -> 获取配置文件value进行注入 -> 前提是spring中加载了外部properties文件
+            ------------------------------------------------------------------------------------------------------------
+            @Scope          使用在类上                        同xml中scope
+            @PostConstruct  使用在方法上                      标注该方法是Bean的初始化方法
+            @PreDestroy     使用在方法上                      标注该方法是Bean的销毁方法
+        3.注解扫描
+            命名空间
+                xmlns:context="http://www.springframework.org/schema/context"
+            约束路径
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            <!--配置组件扫描-->
+                <context:component-scan base-package="com.qyj"></context:component-scan>
+                    *"com.qyj" -> 该包下的所有包都进行扫描
+    2.Spring新注解 详见com.com.qyj.config包下具体注解
+        1.注解类型
+            @Configuration      用于指定当前类是一个Spring配置类,当创建容器时会从该类上加载注解
+            @Bean               使用在方法上,标注将该方法的返回值存储到Spring容器中
+            ------------------------------------------------------------------------------------------------------------
+            @ComponentScan      用于指定Spring在初始化容器时需要扫描的包
+                *作用同xml中的 <context:component-scan base-package="com.com.qyj"></context:component-scan>
+            @PropertySource     用于加载.properties文件中的配置
+                *作用同xml中的 <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+            @Import             用于导入其他.xml类型的配置类
+                *作用同xml中的 <import resource="applicationContext-constructor-arg.xml"></import>
+
+
+

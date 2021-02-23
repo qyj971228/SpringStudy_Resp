@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring_ioc:war exploded">
-    <output-path>$PROJECT_DIR$/spring_ioc/target/spring_ioc</output-path>
+  <artifact type="exploded-war" name="spring_aop_ann:war exploded">
+    <output-path>$PROJECT_DIR$/spring_ioc_ann/target/spring_aop_anno</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>spring_ioc</module>
+        <module>spring_aop_ann</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring_ioc_xml" />
+          <element id="module-output" name="spring_ioc_ann" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.12.RELEASE" />
@@ -20,12 +20,17 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.12.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.12.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.12.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.2.12.RELEASE" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.22" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1.2" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.10" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring_ioc_xml/target/spring_ioc/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/spring_ioc_ann/target/spring_aop_anno/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring_ioc_xml/web/Web" />
+      <element id="javaee-facet-resources" facet="spring_ioc_ann/web/Web" />
     </root>
   </artifact>
 </component>

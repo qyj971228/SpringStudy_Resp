@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/spring_aop" />
-    <file type="web" url="file://$PROJECT_DIR$/spring_ioc" />
-    <file type="web" url="file://$PROJECT_DIR$/spring_ioc_anno" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-aop_ann" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_aop_xml" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_ioc_ann" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_ioc_xml" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -12,6 +13,10 @@
         <option value="$PROJECT_DIR$/spring_ioc/pom.xml" />
         <option value="$PROJECT_DIR$/spring_ioc_anno/pom.xml" />
         <option value="$PROJECT_DIR$/spring_aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ioc_xml/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_aop_xml/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ioc_ann/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-aop_ann/pom.xml" />
       </list>
     </option>
   </component>

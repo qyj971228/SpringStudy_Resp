@@ -11,7 +11,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring_aop_anno" />
+          <element id="module-output" name="spring_ioc_ann" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.12.RELEASE" />
@@ -28,9 +28,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring_ioc_anno/target/spring_aop_anno/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/spring_ioc_ann/target/spring_aop_anno/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring_aop_anno/web/Web" />
+      <element id="javaee-facet-resources" facet="spring_ioc_ann/web/Web" />
     </root>
   </artifact>
 </component>
