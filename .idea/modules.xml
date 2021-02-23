@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/spring.iml" filepath="$PROJECT_DIR$/.idea/spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-aop_ann/spring-aop_ann.iml" filepath="$PROJECT_DIR$/spring-aop_ann/spring-aop_ann.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-jdbc/spring-jdbc.iml" filepath="$PROJECT_DIR$/spring-jdbc/spring-jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-tx/spring-tx.iml" filepath="$PROJECT_DIR$/spring-tx/spring-tx.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_aop_xml/spring_aop_xml.iml" filepath="$PROJECT_DIR$/spring_aop_xml/spring_aop_xml.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_ioc_ann/spring_ioc_ann.iml" filepath="$PROJECT_DIR$/spring_ioc_ann/spring_ioc_ann.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_ioc_xml/spring_ioc_xml.iml" filepath="$PROJECT_DIR$/spring_ioc_xml/spring_ioc_xml.iml" />
