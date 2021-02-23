@@ -1,0 +1,43 @@
+JDBCTemplate *详见test/com/qyj/test/JdbcTemplateTest
+    1.概述
+        它是spring框架中提供的一个对象,是对原始繁琐的JDBC API对象的简单封装
+        例如:操作sql数据库的JdbcTemplate和HibernateTemplate,操作nosql数据库的RedisTemplate,操作消息队列的JmsTemplate
+    2.JdbcTemplate开发步骤
+        1.导入spring-jdbc和spring-tx(事务)坐标
+            <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-jdbc</artifactId>
+              <version>5.2.12.RELEASE</version>
+            </dependency>
+            <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-tx</artifactId>
+              <version>5.2.12.RELEASE</version>
+            </dependency>
+        2.创建数据库表和实体
+        3.创建JdbcTemplate对象
+            JdbcTemplate jdbcTemplate = new JdbcTemplate();
+            jdbcTemplate.setDataSource(dataSource);
+        4.执行数据库操作
+            int row = jdbcTemplate.update("insert into users values(?,?,?)",3,"zhaoliu","456789");
+            System.out.println(row);
+xml的开发步骤
+    1.注入依赖
+        *详见 spring-jdbc/src/test/resources/applicationContext.xml & jdbc.properties
+    2.获取JdbcTemplate对象
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) app.getBean("jdbcTemplate_Druid");
+    3.进行数据库操作
+        例:
+            String sql = "insert into users values(?,?,?)";
+            int row = jdbcTemplate.update(sql,5,"zhaoliu","456789");
+
+
+
+
+
+
+
+
+
+

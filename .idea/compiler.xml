@@ -9,11 +9,13 @@
         <module name="spring_aop_xml" />
         <module name="spring_ioc_ann" />
         <module name="spring-aop_ann" />
+        <module name="spring-jdbc" />
         <module name="spring_ioc_xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="spring-aop_ann" target="1.7" />
+      <module name="spring-jdbc" target="1.7" />
       <module name="spring_aop_xml" target="1.7" />
       <module name="spring_ioc_ann" target="1.7" />
       <module name="spring_ioc_anno" target="1.7" />

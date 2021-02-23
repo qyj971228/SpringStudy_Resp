@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/spring-aop_ann" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-jdbc" />
     <file type="web" url="file://$PROJECT_DIR$/spring_aop_xml" />
     <file type="web" url="file://$PROJECT_DIR$/spring_ioc_ann" />
     <file type="web" url="file://$PROJECT_DIR$/spring_ioc_xml" />
@@ -17,6 +18,7 @@
         <option value="$PROJECT_DIR$/spring_aop_xml/pom.xml" />
         <option value="$PROJECT_DIR$/spring_ioc_ann/pom.xml" />
         <option value="$PROJECT_DIR$/spring-aop_ann/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-jdbc/pom.xml" />
       </list>
     </option>
   </component>
