@@ -15,7 +15,7 @@ spring-aop_ann
             @Around
             @AfterThrowing
             @After
-                *切点表达式抽取 详见com.qyj.aop.MyAspect
+                *切点表达式抽取 详见com.qyj.aop_ann.MyAspect
                     1.定义切点表达式
                         @Pointcut("execution(public void com.qyj.aop.Target.save())")
                         public void pointcut(){}

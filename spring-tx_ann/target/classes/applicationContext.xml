@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--组件扫描-->
+    <context:component-scan base-package="com.qyj.*"></context:component-scan>
+    <!--配置一个平台事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--事务的注解驱动-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    <!--引入properties配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="DriverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+<!--    <bean id="accountDao" class="com.qyj.dao.impl.AccountDaoImpl">-->
+<!--        <property name="jdbcTemplate" ref="jdbcTemplate"></property>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;目标对象,内部的方法就是切点&ndash;&gt;-->
+<!--    <bean id="accountService" class="com.qyj.service.impl.AccountServiceImpl">-->
+<!--        <property name="accountDao" ref="accountDao"></property>-->
+<!--    </bean>-->
+
+
+
+<!--    &lt;!&ndash;通知,事务的增强&ndash;&gt;-->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        &lt;!&ndash;设置事务的属性信息&ndash;&gt;-->
+<!--        <tx:attributes>-->
+<!--            &lt;!&ndash;默认配置&ndash;&gt;-->
+<!--            <tx:method name="*"/>-->
+<!--            &lt;!&ndash;指定配置&ndash;&gt;-->
+<!--            <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+
+<!--    &lt;!&ndash;配置事务的aop织入&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="transfer" expression="execution(* *.transfer(..))"/>-->
+<!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="transfer"></aop:advisor>-->
+<!--    </aop:config>-->
+
+
+</beans>

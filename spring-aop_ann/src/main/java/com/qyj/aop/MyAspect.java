@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class MyAspect {
 
     /**
-     * 定义切点表达式
+     * 定义切点
      */
     @Pointcut("execution(public void com.qyj.aop.Target.save())")
     public void pointcut(){}

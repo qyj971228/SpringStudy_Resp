@@ -11,13 +11,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring-tx" />
+          <element id="module-output" name="spring-tx_xml" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring-tx/target/spring-_tx/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/spring-tx_xml/target/spring-_tx/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring-tx/web/Web" />
+      <element id="javaee-facet-resources" facet="spring-tx_xml/web/Web" />
     </root>
   </artifact>
 </component>

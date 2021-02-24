@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="spring-tx:war exploded">
-    <output-path>$PROJECT_DIR$/spring-tx/target/spring-tx</output-path>
+  <artifact type="exploded-war" name="spring-tx_ann:war exploded">
+    <output-path>$PROJECT_DIR$/spring-tx_ann/target/spring-tx</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>spring-tx</module>
+        <module>spring-tx_ann</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spring-tx_xml" />
+          <element id="module-output" name="spring-tx_ann" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.4" />
@@ -29,9 +29,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/spring-tx_xml/target/spring-tx/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/spring-tx_ann/target/spring-tx/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spring-tx_xml/web/Web" />
+      <element id="javaee-facet-resources" facet="spring-tx_ann/web/Web" />
     </root>
   </artifact>
 </component>

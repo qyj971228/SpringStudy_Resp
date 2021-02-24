@@ -1,0 +1,66 @@
+基于xml的声明式事务控制
+    声明式事务控制的实现
+
+    1.平台事务管理器配置(transactionManager)
+    2.配置事务控制(tx:advice)
+    3.配置事务的aop织入(aop:advisor)
+
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+
+        <!--配置一个平台事务管理器-->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+        <!--通知,事务的增强-->
+        <tx:advice id="txAdvice" transaction-manager="transactionManager">
+            <!--设置事务的属性信息-->
+            <tx:attributes>
+                <!--默认配置-->
+                <tx:method name="*"/>
+                <!--指定配置-->
+                <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+                <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+                <tx:method name="transfer" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            </tx:attributes>
+        </tx:advice>
+           *name:切点方法名称
+            isolation:事务的隔离级别
+            propagation:事务的传播行为
+            timeout:超时时间
+            read-only:是否只读
+
+        <!--配置事务的aop织入-->
+        <aop:config>
+            <aop:pointcut id="transfer" expression="execution(* *.transfer(..))"/>
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="transfer"></aop:advisor>
+        </aop:config>
+
+
+基于ann的声明式事务控制
+
+    1.平台事务管理器配置(xml)
+    2.事务通知配置(@Transactional注解)
+    3.事务的注解驱动配置(tx:annotation-driven)
+
+    事务控制注解
+        @Transactional(isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED,timeout = -1,readOnly = false)
+        1.当注解在类上时,表示此类全部方法都使用此事务控制
+        2.当注解在方法上时,表示此方法使用此事务控制
+        3.当注解同时出现在类与方法上时,使用方法上的类进行事务控制
+
+        <!--组件扫描-->
+        <context:component-scan base-package="com.qyj.*"></context:component-scan>
+
+        <!--配置一个平台事务管理器-->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+        <!--事务的注解驱动-->
+        <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+

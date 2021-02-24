@@ -82,6 +82,7 @@ xml实现
                     <aop:before method="before" pointcut="execution(public void com.qyj.aop.Target.save())"></aop:before>
                 </aop:aspect>
             </bean:config>
+                *将aspect的before()以before形式织入到target的save()上
         6.测试代码
     2.xml配置aop详解
         1.切点表达式写法
@@ -113,11 +114,25 @@ xml实现
                     save running...
                     最终增强
                     异常增强
-        3.切点表达式的抽取
-            <aop:pointcut id="targetPointcut" expression="execution(public void com.com.qyj.aop.Target.save())"/>
-            <aop:aspect ref="myAspect">
-                        <aop:before method="before" pointcut-ref="targetPointcut"/>
-            </aop:aspect>
+        3.切点表达式的抽取 -> 标准格式
+            <!--目标对象-->
+            <bean id="target" class="com.qyj.aop.Target"></bean>
+
+            <!--切面对象-->
+            <bean id="myAspect" class="com.qyj.aop.MyAspect"></bean>
+
+            <!--织入关系:告诉spring哪些方法(切点)需要进行哪些增强(前置,后置...)-->
+            <bean:config>
+                <!--声明切面-->
+                <aop:pointcut id="targetPointcut" expression="execution(public void com.qyj.aop.Target.save())"/>
+                <aop:aspect ref="myAspect">
+                    <aop:around method="around" pointcut-ref="targetPointcut"/>
+                    <aop:before method="before" pointcut-ref="targetPointcut"/>
+                    <aop:after-returning method="afterReturning" pointcut-ref="targetPointcut"/>
+                    <aop:after-throwing method="afterThrowing" pointcut-ref="targetPointcut"/>
+                    <aop:after method="after" pointcut-ref="targetPointcut"/>
+                </aop:aspect>
+            </bean:config>
 
 
 
